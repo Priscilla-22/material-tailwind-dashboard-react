@@ -135,7 +135,7 @@ export function FarmerCrmRoutes() {
 
                                         <td className={className}>
                                             <div className="w-10/12">
-                                                <Button variant="text" className="flex items-center gap-2 bg-green-100" color="green">
+                                                <Button variant="text" className="flex items-center gap-2 bg-green-100" >
                                                     Farmers {" "}
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
