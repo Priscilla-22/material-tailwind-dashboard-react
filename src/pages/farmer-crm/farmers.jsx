@@ -58,10 +58,10 @@ export function FarmerCrmFarmers() {
     return (
         <div className="mt-12 mb-8 flex flex-col gap-12">
             {/* Buttons to toggle forms */}
-            <div className="flex gap-4">
-                <Button onClick={() => handleToggleForm("addFarmer")}>Add Farmer</Button>
-                <Button onClick={() => handleToggleForm("bulkImport")}>Bulk Import</Button>
-                <Button onClick={() => handleToggleForm("globalFilter")}>Global Filter</Button>
+            <div className="flex gap-4 ">
+                <Button className="bg-blue-600" onClick={() => handleToggleForm("addFarmer")}>Add Farmer</Button>
+                <Button className="bg-green-600" onClick={() => handleToggleForm("bulkImport")}>Bulk Import</Button>
+                <Button className="bg-green-600" onClick={() => handleToggleForm("globalFilter")}>Global Filter</Button>
             </div>
 
             {/* Add Farmer Form */}
