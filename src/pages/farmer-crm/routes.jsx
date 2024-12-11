@@ -11,10 +11,62 @@ import {
 } from "@material-tailwind/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { projectsTableData } from "@/data";
+import BaseForm from "@/widgets/layout/base-form.jsx";
+import {useState} from "react";
 
 export function FarmerCrmRoutes() {
+    const [showForm, setShowForm] = useState(false);
+    const [routeName, setRouteName] = useState('');
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        console.log('Submitted Route:', routeName);
+        // Hide the form after submission
+        setShowForm(false);
+        setRouteName(''); // Reset route name
+    };
+
+    const handleShowForm = () => {
+        setShowForm(true);
+    };
+
+    const handleCancel = () => {
+        setShowForm(false);
+        setRouteName(''); // Reset the route name field
+    };
+
+
+    const fields = [
+        {
+            label: 'Route Name',
+            value: routeName,
+            onChange: (e) => setRouteName(e.target.value),
+            required: true,
+        }
+    ];
+
     return (
         <div className="mt-12 mb-8 flex flex-col gap-12">
+            {/* Show the form when the button is clicked */}
+            {!showForm && (
+                <Button
+                    onClick={handleShowForm}
+                    color="blue"
+                    className="self-start py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300"
+                >
+                    Add New Route
+                </Button>
+            )}
+
+            {showForm && (
+                <BaseForm
+                    fields={fields}
+                    onSubmit={handleFormSubmit}
+                    onCancel={handleCancel} // Pass cancel handler to the form
+                />
+            )}
+
+            {/* Registered Routes Table */}
             <Card>
                 <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
                     <Typography variant="h6" color="white">
