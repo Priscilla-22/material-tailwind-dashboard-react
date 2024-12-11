@@ -4,10 +4,12 @@ import {
   TableCellsIcon,
   InformationCircleIcon,
   ServerStackIcon,
-  RectangleStackIcon,
+  RectangleStackIcon, MapIcon, UsersIcon,
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
+import { FarmerCrmDashboard,FarmerCrmRoutes, FarmerCrmFarmers } from '@/pages/farmer-crm';
+
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -58,6 +60,30 @@ export const routes = [
         name: "sign up",
         path: "/sign-up",
         element: <SignUp />,
+      },
+    ],
+  },
+  {
+    title: "Farmer CRM",
+    layout: "farmer-crm",
+    pages: [
+      {
+        icon: <UserCircleIcon {...icon} />,
+        name: "dashboard",
+        path: "/dashboard",
+        element: <FarmerCrmDashboard />,
+      },
+      {
+        icon: <MapIcon {...icon} />,
+        name: "routes",
+        path: "/routes",
+        element: <FarmerCrmRoutes />,
+      },
+      {
+        icon: <UsersIcon {...icon} />,
+        name: "farmers",
+        path: "/farmers",
+        element: <FarmerCrmFarmers  />,
       },
     ],
   },
