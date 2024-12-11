@@ -3,7 +3,7 @@ import { Input, Button, Typography } from '@material-tailwind/react';
 
 export function BaseForm({ fields, onSubmit, onCancel }) {
     return (
-        <form onSubmit={onSubmit} className="space-y-4">
+        <form onSubmit={onSubmit} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {fields.map((field, index) => (
                 <div key={index} className="flex flex-col">
                     <Typography variant="h6" color="blue-gray" className="mb-2">
@@ -17,7 +17,7 @@ export function BaseForm({ fields, onSubmit, onCancel }) {
                     />
                 </div>
             ))}
-            <div className="flex gap-4">
+            <div className="flex gap-4 col-span-full">
                 <Button
                     type="submit"
                     color="green"

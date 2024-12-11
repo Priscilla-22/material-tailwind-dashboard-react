@@ -5,12 +5,100 @@ import {
     Typography,
     Avatar,
     Chip,
+    Button,
 } from "@material-tailwind/react";
 import { authorsTableData } from "@/data";
+import BaseForm from "@/widgets/layout/base-form.jsx";
+import {useState} from "react";
+
 
 export function FarmerCrmFarmers() {
+    const [activeForm, setActiveForm] = useState(null); // Track which form is active
+
+    // Define the fields for each form
+    const addFarmerFields = [
+        { label: "First Name", value: "", onChange: () => {}, required: true },
+        { label: "Last Name", value: "", onChange: () => {}, required: true },
+        { label: "Username", value: "", onChange: () => {}, required: true },
+        { label: "Email", value: "", onChange: () => {}, required: true },
+        { label: "Gender", value: "", onChange: () => {}, required: true },
+        { label: "Date of Birth", value: "", onChange: () => {}, required: true },
+        { label: "Country", value: "", onChange: () => {}, required: true },
+        { label: "County/State/Province", value: "", onChange: () => {}, required: true },
+        { label: "Location", value: "", onChange: () => {}, required: true },
+        { label: "ID No./Passport", value: "", onChange: () => {}, required: true },
+        { label: "Phone Number", value: "", onChange: () => {}, required: true },
+        { label: "Route", value: "", onChange: () => {}, required: true },
+        { label: "Member No.", value: "", onChange: () => {}, required: true },
+        { label: "Products", value: "", onChange: () => {}, required: true },
+        { label: "Farm Size", value: "", onChange: () => {}, required: true },
+        { label: "Profile Picture", value: "", onChange: () => {}, required: false },
+    ];
+
+    const bulkImportFields = [
+        { label: "Upload File", value: "", onChange: () => {}, required: true },
+    ];
+
+    const globalFilterFields = [
+        { label: "Name", value: "", onChange: () => {}, required: false },
+        { label: "Member No.", value: "", onChange: () => {}, required: false },
+        { label: "Date of Birth (Range)", value: "", onChange: () => {}, required: false },
+        { label: "Country", value: "", onChange: () => {}, required: false },
+        { label: "Location", value: "", onChange: () => {}, required: false },
+        { label: "Route", value: "", onChange: () => {}, required: false },
+        { label: "Bank", value: "", onChange: () => {}, required: false },
+        { label: "Customer Type", value: "", onChange: () => {}, required: false },
+        { label: "Gender", value: "", onChange: () => {}, required: false },
+    ];
+
+    const handleToggleForm = (form) => {
+        setActiveForm(form === activeForm ? null : form); // Close form if it's already open
+    };
+
     return (
         <div className="mt-12 mb-8 flex flex-col gap-12">
+            {/* Buttons to toggle forms */}
+            <div className="flex gap-4">
+                <Button onClick={() => handleToggleForm("addFarmer")}>Add Farmer</Button>
+                <Button onClick={() => handleToggleForm("bulkImport")}>Bulk Import</Button>
+                <Button onClick={() => handleToggleForm("globalFilter")}>Global Filter</Button>
+            </div>
+
+            {/* Add Farmer Form */}
+            {activeForm === "addFarmer" && (
+                <div className="mt-6">
+                    <BaseForm fields={addFarmerFields} onSubmit={() => {}} onCancel={() => handleToggleForm("addFarmer")} />
+                </div>
+            )}
+
+            {/* Bulk Import Form */}
+            {activeForm === "bulkImport" && (
+                <div className="mt-6">
+                    <BaseForm fields={bulkImportFields} onSubmit={() => {}} onCancel={() => handleToggleForm("bulkImport")} />
+                    <Button variant="outlined" className="mt-4">
+                        Download Template
+                    </Button>
+                </div>
+            )}
+
+            {/* Global Filter Form */}
+            {activeForm === "globalFilter" && (
+                <div className="mt-6">
+                    <BaseForm fields={globalFilterFields} onSubmit={() => {}} onCancel={() => handleToggleForm("globalFilter")} />
+                    <div className="flex gap-4 mt-4">
+                        {/* Filter Button */}
+                        {/*<Button color="blue" className="w-full">*/}
+                        {/*    Filter*/}
+                        {/*</Button>*/}
+
+                        {/*/!* Reset Button *!/*/}
+                        {/*<Button color="red" className="w-full">*/}
+                        {/*    Reset*/}
+                        {/*</Button>*/}
+                    </div>
+                </div>
+            )}
+
             <Card>
                 <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
                     <Typography variant="h6" color="white">
