@@ -11,11 +11,12 @@ import {
     MenuItem,
     Avatar,
     Tooltip,
-    Progress,
+    Progress, Input, Button,
 } from "@material-tailwind/react";
 import {
     EllipsisVerticalIcon,
     ArrowUpIcon,
+    ClockIcon,
 } from "@heroicons/react/24/outline";
 import { StatisticsCard } from "@/widgets/cards";
 import { StatisticsChart } from "@/widgets/charts";
@@ -26,7 +27,10 @@ import {
     projectsTableData,
     ordersOverviewData,
 } from "@/data";
-import { CheckCircleIcon, ClockIcon } from "@heroicons/react/24/solid";
+import { TableWithSearch } from "@/Components/TableWithSearch.jsx";
+import {CheckCircleIcon} from "@heroicons/react/24/solid";
+import {MagnifyingGlassIcon} from "@heroicons/react/24/outline/index.js";
+import {ArrowDownTrayIcon} from "@heroicons/react/24/solid/index.js"; // Import TableWithSearch
 
 export function FarmerCrmDashboard() {
     return (
@@ -49,7 +53,9 @@ export function FarmerCrmDashboard() {
                     />
                 ))}
             </div>
-            <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-3">
+
+            {/* Line Charts */}
+            <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-2">
                 {lineChartsData.map((props) => (
                     <StatisticsChart
                         key={props.title}
@@ -66,6 +72,67 @@ export function FarmerCrmDashboard() {
                     />
                 ))}
             </div>
+
+            {/* Tables */}
+            <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+                {/* Table 1 */}
+                <Card className="h-full w-full">
+                    <CardHeader floated={false} shadow={false} className="rounded-none">
+                        <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
+                            <div>
+                                <Typography variant="h5" color="blue-gray">
+                                    Farmers Per Route
+                                </Typography>
+                                <Typography color="gray" className="mt-1 font-normal">
+                                    These are details about number of farmers per route
+                                </Typography>
+                            </div>
+                            <div className="flex w-full shrink-0 gap-2 md:w-max">
+                                <div className="w-full md:w-72">
+                                    <Input
+                                        label="Search"
+                                        icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+                                    />
+                                </div>
+                                <Button className="flex items-center gap-3 bg-customGreen-dark" size="sm">
+                                    <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4" /> Download
+                                </Button>
+                            </div>
+                        </div>
+                    </CardHeader>
+                    <TableWithSearch />
+                </Card>
+
+                {/* Table 2 */}
+                <Card className="h-full w-full">
+                    <CardHeader floated={false} shadow={false} className="rounded-none">
+                        <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
+                            <div>
+                                <Typography variant="h5" color="blue-gray">
+                                    Collections Per Route
+                                </Typography>
+                                <Typography color="gray" className="mt-1 font-normal">
+                                    These are details about collections per route
+                                </Typography>
+                            </div>
+                            <div className="flex w-full shrink-0 gap-2 md:w-max">
+                                <div className="w-full md:w-72">
+                                    <Input
+                                        label="Search"
+                                        icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+                                    />
+                                </div>
+                                <Button className="flex items-center gap-3 bg-customGreen-dark" size="sm">
+                                    <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4" /> Download
+                                </Button>
+                            </div>
+                        </div>
+                    </CardHeader>
+                    <TableWithSearch />
+                </Card>
+            </div>
+
+            {/* Other Sections */}
             <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
                 <Card className="overflow-hidden xl:col-span-2 border border-blue-gray-100 shadow-sm">
                     <CardHeader
@@ -107,21 +174,19 @@ export function FarmerCrmDashboard() {
                         <table className="w-full min-w-[640px] table-auto">
                             <thead>
                             <tr>
-                                {["companies", "members", "budget", "completion"].map(
-                                    (el) => (
-                                        <th
-                                            key={el}
-                                            className="border-b border-blue-gray-50 py-3 px-6 text-left"
+                                {["companies", "members", "budget", "completion"].map((el) => (
+                                    <th
+                                        key={el}
+                                        className="border-b border-blue-gray-50 py-3 px-6 text-left"
+                                    >
+                                        <Typography
+                                            variant="small"
+                                            className="text-[11px] font-medium uppercase text-blue-gray-400"
                                         >
-                                            <Typography
-                                                variant="small"
-                                                className="text-[11px] font-medium uppercase text-blue-gray-400"
-                                            >
-                                                {el}
-                                            </Typography>
-                                        </th>
-                                    )
-                                )}
+                                            {el}
+                                        </Typography>
+                                    </th>
+                                ))}
                             </tr>
                             </thead>
                             <tbody>
