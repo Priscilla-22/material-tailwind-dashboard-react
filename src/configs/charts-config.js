@@ -3,6 +3,10 @@ export const chartsConfig = {
     toolbar: {
       show: false,
     },
+    padding:{
+      left: '9%',
+      right: '9%',
+    }
   },
   title: {
     show: "",
@@ -17,23 +21,37 @@ export const chartsConfig = {
     axisBorder: {
       show: false,
     },
-    labels: {
+    title: {
       style: {
+        fontSize: "14px",
         colors: "#37474f",
-        fontSize: "13px",
-        fontFamily: "inherit",
-        fontWeight: 300,
+      },
+      labels: {
+        style: {
+          colors: "#37474f",
+          fontSize: "13px",
+          fontFamily: "inherit",
+          fontWeight: 300,
+        },
       },
     },
   },
   yaxis: {
-    labels: {
+    title: {
       style: {
+        fontSize: "14px",
         colors: "#37474f",
-        fontSize: "13px",
-        fontFamily: "inherit",
-        fontWeight: 300,
       },
+      labels: {
+        style: {
+          colors: "#37474f",
+          fontSize: "13px",
+          fontFamily: "inherit",
+          fontWeight: 300,
+        },
+      },
+      offsetX: -8,
+      offsetY: 0,
     },
   },
   grid: {

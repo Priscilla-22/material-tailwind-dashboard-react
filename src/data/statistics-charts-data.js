@@ -27,11 +27,11 @@ const websiteViewsChart = {
 
 const dailySalesChart = {
   type: "line",
-  height: 220,
+  height: 320,
   series: [
     {
       name: "Sales",
-      data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+      data: [10, 90, 20, 50, 40, 300, 320, 500, 350, 200, 230, 500],
     },
   ],
   options: {
@@ -45,7 +45,14 @@ const dailySalesChart = {
     },
     xaxis: {
       ...chartsConfig.xaxis,
+      title: {
+        ...chartsConfig.xaxis.title,
+        text: "Period",
+      },
       categories: [
+        "Jan",
+        "Feb",
+        "Mar",
         "Apr",
         "May",
         "Jun",
@@ -57,16 +64,23 @@ const dailySalesChart = {
         "Dec",
       ],
     },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      title: {
+        ...chartsConfig.yaxis.title,
+        text: "Sales Amount in (KES)",
+      },
+    },
   },
 };
 
 const completedTaskChart = {
   type: "line",
-  height: 220,
+  height: 320,
   series: [
     {
       name: "Sales",
-      data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+      data: [ 10, 90,20,50, 40, 300, 320, 500, 350, 200, 230, 500],
     },
   ],
   options: {
@@ -80,7 +94,14 @@ const completedTaskChart = {
     },
     xaxis: {
       ...chartsConfig.xaxis,
+      title: {
+        ...chartsConfig.xaxis.title,
+        text: "Products",
+      },
       categories: [
+        "Jan",
+        "Feb",
+        "Mar",
         "Apr",
         "May",
         "Jun",
@@ -91,6 +112,13 @@ const completedTaskChart = {
         "Nov",
         "Dec",
       ],
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      title: {
+        ...chartsConfig.yaxis.title,
+        text: "Total Collections",
+      },
     },
   },
 };
@@ -104,24 +132,28 @@ const completedTasksChart = {
   ],
 };
 
+
+
+
+
 export const statisticsChartsData = [
+  // {
+  //   color: "white",
+  //   title: "Website View",
+  //   description: "Last Campaign Performance",
+  //   footer: "campaign sent 2 days ago",
+  //   chart: websiteViewsChart,
+  // },
   {
     color: "white",
-    title: "Website View",
-    description: "Last Campaign Performance",
-    footer: "campaign sent 2 days ago",
-    chart: websiteViewsChart,
-  },
-  {
-    color: "white",
-    title: "Daily Sales",
+    title: "Last 12 Month sales Trend\n",
     description: "15% increase in today sales",
     footer: "updated 4 min ago",
     chart: dailySalesChart,
   },
   {
     color: "white",
-    title: "Completed Tasks",
+    title: "Products Collection in 1 Week\n",
     description: "Last Campaign Performance",
     footer: "just updated",
     chart: completedTasksChart,
