@@ -145,6 +145,103 @@ const productCollectionChart = {
 //   ],
 // };
 
+const farmersPerRouteBarChart = {
+  type: "bar",
+  height: 340,
+  series: [
+    {
+      name: "Sales",
+      data: [50, 40, 300, 320, 500, 350, 200, 230, 500, 50, 40, 300, 320, 500, 350, 200, 230, 500],
+    },
+  ],
+  options: {
+    ...chartsConfig,
+
+    xaxis: {
+      ...chartsConfig.xaxis,
+      title: {
+        ...chartsConfig.xaxis.title,
+        text: "Routes",
+      },
+      categories: [
+        "Mombasa",
+        "Kisumu",
+        "Embu",
+        "Taita",
+        "Nyamira",
+        "Bondo",
+        "Laikipia",
+        "Moyale",
+        "Isiolo",
+        "Mombasa",
+        "Kisumu",
+        "Embu",
+        "Taita",
+        "Nyamira",
+        "Bondo",
+        "Laikipia",
+        "Moyale",
+        "Isiolo",
+      ],
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      title: {
+        ...chartsConfig.yaxis.title,
+        text: "Number of Farmers",
+      },
+    },
+  },
+};
+
+const volumeOfCollectionPerRouteBarChart = {
+  type: "bar",
+  height: 340,
+  series: [
+    {
+      name: "Sales",
+      data: [50, 40, 300, 320, 500, 350, 200, 230, 500, 50, 40, 300, 320, 500, 350, 200, 230, 500],
+    },
+  ],
+  options: {
+    ...chartsConfig,
+
+    xaxis: {
+      ...chartsConfig.xaxis,
+      title: {
+        ...chartsConfig.xaxis.title,
+        text: "Routes",
+      },
+      categories: [
+        "Mombasa",
+        "Kisumu",
+        "Embu",
+        "Taita",
+        "Nyamira",
+        "Bondo",
+        "Laikipia",
+        "Moyale",
+        "Isiolo",
+        "Mombasa",
+        "Kisumu",
+        "Embu",
+        "Taita",
+        "Nyamira",
+        "Bondo",
+        "Laikipia",
+        "Moyale",
+        "Isiolo",
+      ],
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      title: {
+        ...chartsConfig.yaxis.title,
+        text: "Number of Farmers",
+      },
+    },
+  },
+};
 
 const farmerGenderDistributionChart = {
   type: "pie",
@@ -195,5 +292,22 @@ export const pieChartsData = [
     chart: farmerGenderDistributionChart,
   },
 ]
+export const barChartsData = [
 
-export default { lineChartsData, pieChartsData };
+  {
+    color: "white",
+    title: "Gender Distribution",
+    description: "Farmers Gender Distribution\n",
+    footer: "campaign sent 2 days ago",
+    chart: farmersPerRouteBarChart,
+  },
+  {
+    color: "white",
+    title: "Gender Distribution",
+    description: "Farmers Gender Distribution\n",
+    footer: "campaign sent 2 days ago",
+    chart: volumeOfCollectionPerRouteBarChart,
+  },
+]
+
+export default { lineChartsData, pieChartsData, barChartsData };
