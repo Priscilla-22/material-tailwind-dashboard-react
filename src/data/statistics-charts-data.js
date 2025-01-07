@@ -36,7 +36,7 @@ const dailySalesChart = {
   ],
   options: {
     ...chartsConfig,
-    colors: ["#0288d1"],
+    colors: ["#07a5f8"],
     stroke: {
       lineCap: "round",
     },
@@ -85,7 +85,7 @@ const completedTaskChart = {
   ],
   options: {
     ...chartsConfig,
-    colors: ["#388e3c"],
+    colors: ["#1fd527"],
     stroke: {
       lineCap: "round",
     },
@@ -140,7 +140,7 @@ const farmerGenderDistributionChart = {
   series: [44, 48, 28], // Numeric values representing the data for each slice
   options: {
     ...chartsConfig,
-    colors: ["#7ed957", "#0089fa", "#6E7276"], // Colors for each slice
+    colors: ["#1fd527", "#07a5f8", "#6E7276"], // Colors for each slice
     labels: ["Male", "Female", "Others"], // Labels corresponding to the series
     legend: {
       formatter: function (label, opts) {
