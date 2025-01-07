@@ -77,61 +77,68 @@ export function FarmerCrmDashboard() {
 
 
                 {/* Tables */}
-                <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="mb-8 mt-20 grid grid-cols-1 gap-6 md:grid-cols-2">
+
                     {/* Table 1 */}
                     <Card className="h-full w-full">
+                        <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+                            <Typography variant="h6" color="white">
+                                Farmers Per Route
+                            </Typography>
+                        </CardHeader>
                         <CardHeader floated={false} shadow={false} className="rounded-none">
-                            <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
-                                <div>
-                                    <Typography variant="h5" color="blue-gray">
-                                        Farmers Per Route
-                                    </Typography>
-                                    <Typography color="gray" className="mt-1 font-normal">
-                                        These are details about number of farmers per route
-                                    </Typography>
-                                </div>
-                                <div className="flex w-full shrink-0 gap-2 md:w-max">
-                                    <div className="w-full md:w-72">
+                            <div className="mb-4 flex flex-col gap-8 lg:flex-row lg:justify-between lg:items-center">
+                                {/* Typography Section */}
+                                <Typography color="gray" className="mt-1 font-normal">
+                                    These are details about number of farmers per route
+                                </Typography>
+                                {/* Search and Download Section */}
+                                <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:gap-2 sm:justify-between sm:mb-4">
+                                    <div className="w-full sm:w-auto lg:w-72">
                                         <Input
                                             label="Search"
-                                            icon={<MagnifyingGlassIcon className="h-5 w-5"/>}
+                                            icon={<MagnifyingGlassIcon className="h-5 w-5" />}
                                         />
                                     </div>
                                     <Button className="flex items-center gap-3 bg-customGreen-dark" size="sm">
-                                        <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4"/> Download
+                                        <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4" /> Download
                                     </Button>
                                 </div>
                             </div>
                         </CardHeader>
-                        <TableWithSearch/>
+                        <TableWithSearch />
                     </Card>
+
+
 
                     {/* Table 2 */}
                     <Card className="h-full w-full">
+                        <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+                            <Typography variant="h6" color="white">
+                                Collections Per Route
+                            </Typography>
+                        </CardHeader>
                         <CardHeader floated={false} shadow={false} className="rounded-none">
-                            <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
-                                <div>
-                                    <Typography variant="h5" color="blue-gray">
-                                        Collections Per Route
-                                    </Typography>
-                                    <Typography color="gray" className="mt-1 font-normal">
-                                        These are details about collections per route
-                                    </Typography>
-                                </div>
-                                <div className="flex w-full shrink-0 gap-2 md:w-max">
-                                    <div className="w-full md:w-72">
+                            <div className="mb-4 flex flex-col gap-8 lg:flex-row lg:justify-between lg:items-center">
+                                {/* Typography Section */}
+                                <Typography color="gray" className="mt-1 font-normal">
+                                    These are details about collections per route
+                                </Typography>
+                                {/* Search and Download Section */}
+                                <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:gap-2 sm:justify-between sm:mb-4">
+                                    <div className="w-full sm:w-auto lg:w-72">
                                         <Input
                                             label="Search"
-                                            icon={<MagnifyingGlassIcon className="h-5 w-5"/>}
+                                            icon={<MagnifyingGlassIcon className="h-5 w-5" />}
                                         />
                                     </div>
                                     <Button className="flex items-center gap-3 bg-customGreen-dark" size="sm">
-                                        <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4"/> Download
+                                        <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4" /> Download
                                     </Button>
                                 </div>
                             </div>
                         </CardHeader>
-                        <TableWithSearch/>
+                        <TableWithSearch />
                     </Card>
                 </div>
 
