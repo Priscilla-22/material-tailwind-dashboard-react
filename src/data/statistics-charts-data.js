@@ -156,7 +156,7 @@ const farmersPerRouteBarChart = {
   ],
   options: {
     ...chartsConfig,
-
+    colors: ["#1fd527"],
     xaxis: {
       ...chartsConfig.xaxis,
       title: {
@@ -237,7 +237,7 @@ const volumeOfCollectionPerRouteBarChart = {
       ...chartsConfig.yaxis,
       title: {
         ...chartsConfig.yaxis.title,
-        text: "Number of Farmers",
+        text: "Volume Collected",
       },
     },
   },

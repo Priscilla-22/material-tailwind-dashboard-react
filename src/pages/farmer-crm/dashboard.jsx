@@ -56,7 +56,7 @@ export function FarmerCrmDashboard() {
 
 
                 {/* Bar Charts 1 */}
-                <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-1 xl:grid-cols-2">
+                <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-1 xl:grid-cols-1">
                     {barChartsData.map((props) => (
                         <StatisticsChart
                             key={props.title}
