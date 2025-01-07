@@ -7,20 +7,9 @@ import {
 
 export const statisticsCardsData = [
   {
-    color: "gray",
-    icon: BanknotesIcon,
-    title: "Today's Money",
-    value: "$53k",
-    footer: {
-      color: "text-green-500",
-      value: "+55%",
-      label: "than last week",
-    },
-  },
-  {
-    color: "gray",
+    color: "blue",
     icon: UsersIcon,
-    title: "Today's Users",
+    title: "Our Farmers",
     value: "2,300",
     footer: {
       color: "text-green-500",
@@ -29,9 +18,64 @@ export const statisticsCardsData = [
     },
   },
   {
-    color: "gray",
+    color: "green",
+    icon: BanknotesIcon,
+    title: "Collections",
+    value: "$53k",
+    footer: {
+      color: "text-green-500",
+      value: "+55%",
+      label: "than last week",
+    },
+  },
+  {
+    color: "yellow",
+    icon: BanknotesIcon,
+    title: "Income",
+    value: "$53k",
+    footer: {
+      color: "text-green-500",
+      value: "+18%",
+      label: "than last week",
+    },
+  },
+  {
+    color: "red",
+    icon: ChartBarIcon,
+    title: "Expenses",
+    value: "$103,430",
+    footer: {
+      color: "text-green-500",
+      value: "+5%",
+      label: "than yesterday",
+    },
+  },
+  {
+    color: "yellow",
+    icon: ChartBarIcon,
+    title: "Profit Margins",
+    value: "KSH 103,430",
+    footer: {
+      color: "text-green-500",
+      value: "+5%",
+      label: "than yesterday",
+    },
+  },
+  {
+    color: "red",
+    icon: BanknotesIcon,
+    title: "Sales",
+    value: "$53k",
+    footer: {
+      color: "text-green-500",
+      value: "+55%",
+      label: "than last week",
+    },
+  },
+  {
+    color: "green",
     icon: UserPlusIcon,
-    title: "New Clients",
+    title: "Employees",
     value: "3,462",
     footer: {
       color: "text-red-500",
@@ -40,10 +84,10 @@ export const statisticsCardsData = [
     },
   },
   {
-    color: "gray",
+    color: "blue",
     icon: ChartBarIcon,
-    title: "Sales",
-    value: "$103,430",
+    title: "Available Stock Value",
+    value: "KSH 1.26M",
     footer: {
       color: "text-green-500",
       value: "+5%",
