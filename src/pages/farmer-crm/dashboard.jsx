@@ -21,7 +21,8 @@ import { StatisticsCard } from "@/widgets/cards";
 import { StatisticsChart } from "@/widgets/charts";
 import {
     statisticsCardsData,
-    statisticsChartsData,
+    lineChartsData,
+    pieChartsData,
     projectsTableData,
     ordersOverviewData,
 } from "@/data";
@@ -49,7 +50,7 @@ export function FarmerCrmDashboard() {
                 ))}
             </div>
             <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-3">
-                {statisticsChartsData.map((props) => (
+                {lineChartsData.map((props) => (
                     <StatisticsChart
                         key={props.title}
                         {...props}

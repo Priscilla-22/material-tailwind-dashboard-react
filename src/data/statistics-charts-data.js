@@ -133,17 +133,29 @@ const completedTasksChart = {
 };
 
 
+const farmerGenderDistributionChart = {
+  type: "pie",
+  width: 280,
+  height: 280,
+  series: [44, 48, 28], // Numeric values representing the data for each slice
+  options: {
+    ...chartsConfig,
+    colors: ["#7ed957", "#0089fa", "#6E7276"], // Colors for each slice
+    labels: ["Male", "Female", "Others"], // Labels corresponding to the series
+    legend: {
+      formatter: function (label, opts) {
+        const seriesValue = opts.w.globals.series[opts.seriesIndex];
+        return `${label}: ${seriesValue}`;
+      },
+    },
+  },
+};
 
 
 
-export const statisticsChartsData = [
-  // {
-  //   color: "white",
-  //   title: "Website View",
-  //   description: "Last Campaign Performance",
-  //   footer: "campaign sent 2 days ago",
-  //   chart: websiteViewsChart,
-  // },
+
+export const lineChartsData = [
+
   {
     color: "white",
     title: "Last 12 Month sales Trend\n",
@@ -160,4 +172,15 @@ export const statisticsChartsData = [
   },
 ];
 
-export default statisticsChartsData;
+export const pieChartsData = [
+
+  {
+    color: "white",
+    title: "Gender Distribution",
+    description: "Farmers Gender Distribution\n",
+    footer: "campaign sent 2 days ago",
+    chart: farmerGenderDistributionChart,
+  },
+]
+
+export default { lineChartsData, pieChartsData };
