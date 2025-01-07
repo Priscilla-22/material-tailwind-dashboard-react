@@ -74,20 +74,25 @@ const dailySalesChart = {
   },
 };
 
-const completedTaskChart = {
+const productCollectionChart = {
   type: "line",
   height: 320,
   series: [
     {
-      name: "Sales",
-      data: [ 10, 90,20,50, 40, 300, 320, 500, 350, 200, 230, 500],
+      name: "Collected",
+      data: [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600], // Data for 2022
+    },
+    {
+      name: "Sold",
+      data: [60, 120, 40, 130, 470, 210, 90, 210, 10, 420, 680, 520], // Data for 2023
     },
   ],
   options: {
     ...chartsConfig,
-    colors: ["#1fd527"],
+    colors: ["#1fd527", "#07a5f8"], // Colors for the two lines
     stroke: {
-      lineCap: "round",
+      curve: "smooth", // Smooth curve
+      width: 2,
     },
     markers: {
       size: 5,
@@ -96,7 +101,7 @@ const completedTaskChart = {
       ...chartsConfig.xaxis,
       title: {
         ...chartsConfig.xaxis.title,
-        text: "Products",
+        text: "Months",
       },
       categories: [
         "Jan",
@@ -111,26 +116,34 @@ const completedTaskChart = {
         "Oct",
         "Nov",
         "Dec",
-      ],
+      ], // Months as categories
     },
     yaxis: {
       ...chartsConfig.yaxis,
       title: {
         ...chartsConfig.yaxis.title,
-        text: "Total Collections",
+        text: "Collections (KES)",
       },
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "center",
+    },
+    tooltip: {
+      theme: "light",
     },
   },
 };
-const completedTasksChart = {
-  ...completedTaskChart,
-  series: [
-    {
-      name: "Tasks",
-      data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-    },
-  ],
-};
+
+// const completedTasksChart = {
+//   ...completedTaskChart,
+//   series: [
+//     {
+//       name: "Tasks",
+//       data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+//     },
+//   ],
+// };
 
 
 const farmerGenderDistributionChart = {
@@ -168,7 +181,7 @@ export const lineChartsData = [
     title: "Products Collection in 1 Week\n",
     description: "Last Campaign Performance",
     footer: "just updated",
-    chart: completedTasksChart,
+    chart: productCollectionChart,
   },
 ];
 
