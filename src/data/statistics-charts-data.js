@@ -268,14 +268,21 @@ export const lineChartsData = [
 
   {
     color: "white",
-    title: "Last 12 Month sales Trend\n",
+    title: "Products Collection in 1Week",
+    description: "Last Campaign Performance",
+    footer: "campaign sent 2 days ago",
+    chart: websiteViewsChart,
+  },
+  {
+    color: "white",
+    title: "Daily Sales",
     description: "15% increase in today sales",
     footer: "updated 4 min ago",
     chart: dailySalesChart,
   },
   {
     color: "white",
-    title: "Products Collection in 1 Week\n",
+    title: "Last 12 Months Sales Trend",
     description: "Last Campaign Performance",
     footer: "just updated",
     chart: productCollectionChart,
