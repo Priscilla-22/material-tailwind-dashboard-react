@@ -261,7 +261,68 @@ const farmerGenderDistributionChart = {
   },
 };
 
-
+const comparisonBarChart = {
+  type: "bar",
+  height: 320,
+  series: [
+    {
+      name: "2022 Sales",
+      data: [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600],
+    },
+    {
+      name: "2023 Sales",
+      data: [60, 120, 40, 130, 470, 210, 90, 210, 10, 420, 680, 520],
+    },
+  ],
+  options: {
+    ...chartsConfig,
+    colors: ["#1fd527", "#07a5f8"],
+    plotOptions: {
+      bar: {
+        columnWidth: "45%", // Adjust column width for better appearance
+        borderRadius: 5,    // Rounded corners for bars
+        dataLabels: {
+          position: "top", // Show data labels on top of bars
+        },
+      },
+    },
+    xaxis: {
+      ...chartsConfig.xaxis,
+      title: {
+        ...chartsConfig.xaxis.title,
+        text: "Months",
+      },
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      title: {
+        ...chartsConfig.yaxis.title,
+        text: "Sales (KES)",
+      },
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "center",
+    },
+    tooltip: {
+      theme: "light",
+    },
+  },
+};
 
 
 export const lineChartsData = [
@@ -317,4 +378,14 @@ export const barChartsData = [
   },
 ]
 
-export default { lineChartsData, pieChartsData, barChartsData };
+
+export const comparisonBarChartsData = [
+  {
+    color: "white",
+    title: "Comparison of 2022 vs 2023 Sales",
+    description: "Track trends between years",
+    footer: "Last updated 5 mins ago",
+    chart: comparisonBarChart,
+  },
+];
+export default { lineChartsData, pieChartsData, barChartsData,comparisonBarChartsData };

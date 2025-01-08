@@ -9,11 +9,24 @@ import {
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import { FarmerCrmDashboard,FarmerCrmRoutes, FarmerCrmFarmers } from '@/pages/farmer-crm';
+import {ProductManagementCategories, ProductManagementDashboard} from "@/pages/product-management/index.js";
 
 
 const icon = {
   className: "w-5 h-5 text-inherit",
 };
+
+function FProductManagementUnits() {
+  return null;
+}
+
+function ProductManagementProducts() {
+  return null;
+}
+
+function ProductManagementSuppliers() {
+  return null;
+}
 
 export const routes = [
   {
@@ -84,6 +97,42 @@ export const routes = [
         name: "farmers",
         path: "/farmers",
         element: <FarmerCrmFarmers  />,
+      },
+    ],
+  },
+      {
+    title: "Product Management",
+    layout: "product-management",
+    pages: [
+      {
+        icon: <UserCircleIcon {...icon} />,
+        name: "dashboard",
+        path: "/dashboard",
+        element: <ProductManagementDashboard />,
+      },
+      {
+        icon: <MapIcon {...icon} />,
+        name: "units",
+        path: "/units",
+        element: <FProductManagementUnits />,
+      },
+      {
+        icon: <UsersIcon {...icon} />,
+        name: "categories",
+        path: "/categories",
+        element: <ProductManagementCategories  />,
+      },
+      {
+        icon: <UsersIcon {...icon} />,
+        name: "products",
+        path: "/products",
+        element: <ProductManagementProducts  />,
+      },
+      {
+        icon: <UsersIcon {...icon} />,
+        name: "suppliers",
+        path: "/suppliers",
+        element: <ProductManagementSuppliers  />,
       },
     ],
   },
