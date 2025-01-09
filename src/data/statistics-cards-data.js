@@ -47,7 +47,7 @@ export const statisticsCardsData = [
     color: "red",
     icon: ChartBarIcon,
     title: "Expenses",
-    value: "$103,430",
+    value: "KSH 103,430",
     footer: {
       color: "text-green-500",
       value: "+5%",
@@ -58,7 +58,7 @@ export const statisticsCardsData = [
     color: "yellow",
     icon: ChartBarIcon,
     title: "Profit Margins",
-    value: "KSH 103,430",
+    value: "KSH 39,430",
     footer: {
       color: "text-green-500",
       value: "+5%",
@@ -69,10 +69,10 @@ export const statisticsCardsData = [
     color: "red",
     icon: BanknotesIcon,
     title: "Sales",
-    value: "$53k",
+    value: "$37k",
     footer: {
       color: "text-green-500",
-      value: "+55%",
+      value: "+23%",
       label: "than last week",
     },
   },

@@ -356,7 +356,7 @@ export const pieChartsData = [
     color: "white",
     title: "Gender Distribution",
     description: "Farmers Gender Distribution\n",
-    footer: "campaign sent 2 days ago",
+    footer: "updated 2 days ago",
     chart: farmerGenderDistributionChart,
   },
 ]
