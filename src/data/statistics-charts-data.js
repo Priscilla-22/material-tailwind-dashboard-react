@@ -360,6 +360,7 @@ export const pieChartsData = [
     chart: farmerGenderDistributionChart,
   },
 ]
+
 export const barChartsData = [
 
   {

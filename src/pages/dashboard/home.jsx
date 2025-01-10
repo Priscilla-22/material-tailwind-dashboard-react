@@ -28,6 +28,7 @@ import {
   ordersOverviewData,
 } from "@/data";
 import { CheckCircleIcon, ClockIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";  
 
 export function Home() {
   return (
@@ -53,7 +54,7 @@ export function Home() {
         ))}
       </div>
 
-      {/*Line graphs*/}
+      {/*Line graphs & Orders Overview */}
       <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-2">
         {lineChartsData.map((props) => (
           <StatisticsChart
@@ -70,10 +71,66 @@ export function Home() {
             }
           />
         ))}
+
+        {/* Orders Overview card */}
+        <Card className="border border-blue-gray-100 shadow-sm">
+          <CardHeader
+            floated={false}
+            shadow={false}
+            color="transparent"
+            className="m-0 p-6"
+          >
+            <Typography variant="h6" color="blue-gray" className="mb-2">
+              Vet Schedules
+            </Typography>
+            <Typography
+              variant="small"
+              className="flex items-center gap-1 font-normal text-blue-gray-600"
+            >
+              <strong>Dec 10 to Jan 10</strong>
+            </Typography>
+          </CardHeader>
+          <CardBody className="pt-0 overflow-y-auto max-h-[300px]"> {/* Add max height and scroll */}
+            <div className="flex flex-col gap-4">
+              {ordersOverviewData.map(({ title, startTime, endTime, user, color }, key) => (
+                <div
+                  key={key}
+                  className="flex items-center justify-between gap-4 border-b pb-3 last:border-none"
+                >
+                  {/* Event Time Slots */}
+                  <div className="flex gap-4 items-center w-1/3">
+                    <span
+                      className={`px-2 py-1 text-xs font-medium text-white rounded ${color.start}`}
+                    >
+                      {startTime}
+                    </span>
+                    <span
+                      className={`px-2 py-1 text-xs font-medium text-white rounded ${color.end}`}
+                    >
+                      {endTime}
+                    </span>
+                  </div>
+
+                  {/* Event Details */}
+                  <div className="flex-1 mx-4">
+                    <Typography variant="small" className="font-medium text-blue-gray-700">
+                      {title}
+                    </Typography>
+                    <Typography variant="small" className="text-xs text-blue-gray-500">
+                      {user}
+                    </Typography>
+                  </div>
+
+                  {/* Arrow on the far right */}
+                  <ArrowRightIcon className="h-5 w-5 text-blue-gray-400 ml-auto" />
+                </div>
+              ))}
+            </div>
+          </CardBody>
+        </Card>
       </div>
 
-
-      {/* VetSchedules && Gender Distribution - Pie Chart*/}
+      {/* Gender Distribution - Pie Chart*/}
       <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-2">
         {pieChartsData.map((props) => (
           <StatisticsChart
@@ -92,7 +149,7 @@ export function Home() {
         ))}
       </div>
 
-      {/*Bottom part */}
+      {/* Bottom part
       <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
         <Card className="overflow-hidden xl:col-span-2 border border-blue-gray-100 shadow-sm">
           <CardHeader
@@ -221,64 +278,7 @@ export function Home() {
             </table>
           </CardBody>
         </Card>
-        <Card className="border border-blue-gray-100 shadow-sm">
-          <CardHeader
-            floated={false}
-            shadow={false}
-            color="transparent"
-            className="m-0 p-6"
-          >
-            <Typography variant="h6" color="blue-gray" className="mb-2">
-              Orders Overview
-            </Typography>
-            <Typography
-              variant="small"
-              className="flex items-center gap-1 font-normal text-blue-gray-600"
-            >
-              <ArrowUpIcon
-                strokeWidth={3}
-                className="h-3.5 w-3.5 text-green-500"
-              />
-              <strong>24%</strong> this month
-            </Typography>
-          </CardHeader>
-          <CardBody className="pt-0">
-            {ordersOverviewData.map(
-              ({ icon, color, title, description }, key) => (
-                <div key={title} className="flex items-start gap-4 py-3">
-                  <div
-                    className={`relative p-1 after:absolute after:-bottom-6 after:left-2/4 after:w-0.5 after:-translate-x-2/4 after:bg-blue-gray-50 after:content-[''] ${
-                      key === ordersOverviewData.length - 1
-                        ? "after:h-0"
-                        : "after:h-4/6"
-                    }`}
-                  >
-                    {React.createElement(icon, {
-                      className: `!w-5 !h-5 ${color}`,
-                    })}
-                  </div>
-                  <div>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="block font-medium"
-                    >
-                      {title}
-                    </Typography>
-                    <Typography
-                      as="span"
-                      variant="small"
-                      className="text-xs font-medium text-blue-gray-500"
-                    >
-                      {description}
-                    </Typography>
-                  </div>
-                </div>
-              )
-            )}
-          </CardBody>
-        </Card>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -9,40 +9,70 @@ import {
 
 export const ordersOverviewData = [
   {
+    title: "Education",
+    startTime: "13 January 08:35",
+    endTime: "13 January 12:35",
+    user: "Robin Mark",
+    color: {
+      start: "bg-green-500",
+      end: "bg-red-500",
+    },
     icon: BellIcon,
-    color: "text-blue-gray-300",
-    title: "$2400, Design changes",
-    description: "22 DEC 7:20 PM",
   },
   {
+    title: "Vaccination",
+    startTime: "15 December 00:35",
+    endTime: "15 December 01:35",
+    user: "Nelson Masibo",
+    color: {
+      start: "bg-green-500",
+      end: "bg-red-500",
+    },
     icon: PlusCircleIcon,
-    color: "text-blue-gray-300",
-    title: "New order #1832412",
-    description: "21 DEC 11 PM",
   },
   {
+    title: "Nutrition Training",
+    startTime: "18 December 10:00",
+    endTime: "18 December 12:00",
+    user: "Emily Carter",
+    color: {
+      start: "bg-green-500",
+      end: "bg-red-500",
+    },
     icon: ShoppingCartIcon,
-    color: "text-blue-gray-300",
-    title: "Server payments for April",
-    description: "21 DEC 9:34 PM",
   },
   {
+    title: "Farm Inspection",
+    startTime: "22 December 14:00",
+    endTime: "22 December 16:30",
+    user: "John Doe",
+    color: {
+      start: "bg-green-500",
+      end: "bg-red-500",
+    },
     icon: CreditCardIcon,
-    color: "text-blue-gray-300",
-    title: "New card added for order #4395133",
-    description: "20 DEC 2:20 AM",
   },
   {
+    title: "Animal Health Workshop",
+    startTime: "27 December 09:00",
+    endTime: "27 December 13:00",
+    user: "Samantha Brown",
+    color: {
+      start: "bg-green-500",
+      end: "bg-red-500",
+    },
     icon: LockOpenIcon,
-    color: "text-blue-gray-300",
-    title: "Unlock packages for development",
-    description: "18 DEC 4:54 AM",
   },
   {
+    title: "Emergency Response Drill",
+    startTime: "05 January 15:00",
+    endTime: "05 January 17:00",
+    user: "George White",
+    color: {
+      start: "bg-green-500",
+      end: "bg-red-500",
+    },
     icon: BanknotesIcon,
-    color: "text-blue-gray-300",
-    title: "New order #9583120",
-    description: "17 DEC",
   },
 ];
 

@@ -9,7 +9,7 @@ import {
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import { FarmerCrmDashboard,FarmerCrmRoutes, FarmerCrmFarmers } from '@/pages/farmer-crm';
-import {ProductManagementCategories, ProductManagementDashboard} from "@/pages/product-management/index.js";
+import { ProductManagementCategories, ProductManagementDashboard} from "@/pages/product-management/index.js";
 
 
 const icon = {
