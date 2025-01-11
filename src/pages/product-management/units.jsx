@@ -3,173 +3,190 @@ import {
     CardHeader,
     CardBody,
     Typography,
-    Avatar,
-    Chip,
-    Tooltip,
-    Progress,
     Button,
+    Input,
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem,
 } from "@material-tailwind/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
-import { projectsTableData } from "@/data";
-import BaseForm from "@/widgets/layout/base-form.jsx";
-import {useState} from "react";
+import { useState } from "react";
+
+const initialUnitsData = [
+    { number: 1, name: "Kilograms (kg)" },
+    { number: 2, name: "Liters (L)" },
+    { number: 3, name: "Meters (m)" },
+    { number: 4, name: "Centimeters (cm)" },
+    { number: 5, name: "Grams (g)" },
+    { number: 6, name: "Milliliters (mL)" },
+    { number: 7, name: "Square Meters (m²)" },
+    { number: 8, name: "Cubic Meters (m³)" },
+    { number: 9, name: "Pieces (pcs)" },
+    { number: 10, name: "Dozens (dz)" },
+];
+
 
 export function ProductManagementUnits() {
     const [showForm, setShowForm] = useState(false);
-    const [routeName, setRouteName] = useState('');
+    const [unitName, setUnitName] = useState("");
+    const [units, setUnits] = useState(initialUnitsData);
+    const [editingUnit, setEditingUnit] = useState(null);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log('Submitted Route:', routeName);
-        // Hide the form after submission
-        setShowForm(false);
-        setRouteName(''); // Reset route name
-    };
+        if (unitName.trim()) {
+            if (editingUnit) {
 
-    const handleShowForm = () => {
-        setShowForm(true);
+                setUnits(units.map((unit) =>
+                    unit.number === editingUnit.number
+                        ? { ...unit, name: unitName }
+                        : unit
+                ));
+                setEditingUnit(null);
+            } else {
+                const newUnit = { number: units.length + 1, name: unitName };
+                setUnits([...units, newUnit]);
+            }
+            setUnitName("");
+            setShowForm(false);
+        }
     };
 
     const handleCancel = () => {
         setShowForm(false);
-        setRouteName(''); // Reset the route name field
+        setUnitName("");
+        setEditingUnit(null);
+    }
+    const handleEdit = (unit) => {
+        setEditingUnit(unit);
+        setUnitName(unit.name);
+        setShowForm(true);
     };
 
-
-    const fields = [
-        {
-            label: 'Route Name',
-            value: routeName,
-            onChange: (e) => setRouteName(e.target.value),
-            required: true,
-        }
-    ];
+    const handleDelete = (number) => {
+        setUnits(units.filter((unit) => unit.number !== number));
+    };
 
     return (
         <div className="mt-12 mb-8 flex flex-col gap-12">
-            {/* Show the form when the button is clicked */}
+            {/* Add/Edit Unit Form */}
+            {showForm && (
+                <Card className="p-4">
+                    <Typography variant="h6" className="mb-4">
+                        {editingUnit ? "Edit Unit" : "Add New Unit"}
+                    </Typography>
+                    <form onSubmit={handleFormSubmit} className="flex items-center gap-4">
+                        <Input
+                            type="text"
+                            label="Unit Name"
+                            value={unitName}
+                            onChange={(e) => setUnitName(e.target.value)}
+                            required
+                            className="w-1/4"
+                        />
+                        <Button type="submit" className="bg-customGreen-dark">
+                            {editingUnit ? "Update" : "Save"}
+                        </Button>
+                        <Button type="button" variant="outlined" onClick={handleCancel}>
+                            Cancel
+                        </Button>
+                    </form>
+                </Card>
+            )}
+
+            {/* Add New Unit Button */}
             {!showForm && (
                 <Button
-                    onClick={handleShowForm}
+                    onClick={() => setShowForm(true)}
                     color="blue"
-                    className="self-start py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300"
+                    className="self-start py-2 px-4 bg-customGreen-dark text-white rounded-lg hover:bg-green-700 transition-all duration-300"
                 >
-                    Add New Route
+                    Add New Unit
                 </Button>
             )}
 
-            {showForm && (
-                <BaseForm
-                    fields={fields}
-                    onSubmit={handleFormSubmit}
-                    onCancel={handleCancel} // Pass cancel handler to the form
-                />
-            )}
-
-            {/* Registered Routes Table */}
+            {/* Units Table */}
             <Card>
                 <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
                     <Typography variant="h6" color="white">
-                        Registered Routes
+                        Product Management Units
                     </Typography>
                 </CardHeader>
-                <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
+                <CardBody className="overflow-x-auto px-0 pt-0 pb-2">
                     <table className="w-full min-w-[640px] table-auto">
                         <thead>
                         <tr>
-                            {["Names", "members", "farmers", "Action"].map(
-                                (el) => (
-                                    <th
-                                        key={el}
-                                        className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                            {["Number", "Name", "Action"].map((el) => (
+                                <th
+                                    key={el}
+                                    className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                                >
+                                    <Typography
+                                        variant="small"
+                                        className="text-[11px] font-bold uppercase text-blue-gray-400"
                                     >
-                                        <Typography
-                                            variant="small"
-                                            className="text-[11px] font-bold uppercase text-blue-gray-400"
-                                        >
-                                            {el}
-                                        </Typography>
-                                    </th>
-                                )
-                            )}
+                                        {el}
+                                    </Typography>
+                                </th>
+                            ))}
                         </tr>
                         </thead>
                         <tbody>
-                        {projectsTableData.map(
-                            ({ img, name, members, budget, completion }, key) => {
-                                const className = `py-3 px-5 ${
-                                    key === projectsTableData.length - 1
-                                        ? ""
-                                        : "border-b border-blue-gray-50"
-                                }`;
+                        {units.map(({ number, name }, index) => {
+                            const className = `py-3 px-5 ${
+                                index === units.length - 1 ? "" : "border-b border-blue-gray-50"
+                            }`;
 
-                                return (
-                                    <tr key={name}>
-                                        <td className={className}>
-                                            <div className="flex items-center gap-4">
-                                                {/*<Avatar src={img} alt={name} size="sm" />*/}
-                                                <Typography
-                                                    variant="small"
-                                                    color="blue-gray"
-                                                    className="font-bold"
+                            return (
+                                <tr key={number}>
+                                    <td className={className}>
+                                        <Typography
+                                            variant="small"
+                                            color="blue-gray"
+                                            className="font-normal"
+                                        >
+                                            {number}
+                                        </Typography>
+                                    </td>
+                                    <td className={className}>
+                                        <Typography
+                                            variant="small"
+                                            color="blue-gray"
+                                            className="font-bold"
+                                        >
+                                            {name}
+                                        </Typography>
+                                    </td>
+                                    <td className={className}>
+                                        <Menu placement="left-start">
+                                            <MenuHandler>
+                                                <Button
+                                                    variant="text"
+                                                    className="text-xs font-semibold text-blue-gray-600"
                                                 >
-                                                    {name}
-                                                </Typography>
-                                            </div>
-                                        </td>
-                                        <td className={className}>
-                                            {members.map(({ img, name }, key) => (
-                                                <Tooltip key={name} content={name}>
-                                                    <Avatar
-                                                        src={img}
-                                                        alt={name}
-                                                        size="xs"
-                                                        variant="circular"
-                                                        className={`cursor-pointer border-2 border-white ${
-                                                            key === 0 ? "" : "-ml-2.5"
-                                                        }`}
-                                                    />
-                                                </Tooltip>
-                                            ))}
-                                        </td>
-
-                                        <td className={className}>
-                                            <div className="w-10/12">
-                                                <Button variant="text" className="flex items-center gap-2 bg-green-100" >
-                                                    Farmers {" "}
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
+                                                    <EllipsisVerticalIcon
                                                         strokeWidth={2}
-                                                        stroke="currentColor"
-                                                        className="h-5 w-5"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                                                        />
-                                                    </svg>
+                                                        className="h-5 w-5 text-inherit"
+                                                    />
                                                 </Button>
-                                            </div>
-                                        </td>
-                                        <td className={className}>
-                                            <Typography
-                                                as="a"
-                                                href="#"
-                                                className="text-xs font-semibold text-blue-gray-600"
-                                            >
-                                                <EllipsisVerticalIcon
-                                                    strokeWidth={2}
-                                                    className="h-5 w-5 text-inherit"
-                                                />
-                                            </Typography>
-                                        </td>
-                                    </tr>
-                                );
-                            }
-                        )}
+                                            </MenuHandler>
+                                            <MenuList>
+                                                <MenuItem onClick={() => handleEdit({ number, name })}>
+                                                    Edit
+                                                </MenuItem>
+                                                <MenuItem
+                                                    onClick={() => handleDelete(number)}
+                                                    className="text-red-500"
+                                                >
+                                                    Delete
+                                                </MenuItem>
+                                            </MenuList>
+                                        </Menu>
+                                    </td>
+                                </tr>
+                            );
+                        })}
                         </tbody>
                     </table>
                 </CardBody>
