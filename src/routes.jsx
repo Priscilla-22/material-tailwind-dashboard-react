@@ -12,7 +12,8 @@ import { FarmerCrmDashboard,FarmerCrmRoutes, FarmerCrmFarmers } from '@/pages/fa
 import {
   ProductManagementCategories,
   ProductManagementDashboard,
-  ProductManagementUnits
+  ProductManagementUnits,
+  ProductManagementProducts,
 } from "@/pages/product-management/index.js";
 
 
@@ -20,13 +21,6 @@ const icon = {
   className: "w-5 h-5 text-inherit",
 };
 
-function FProductManagementUnits() {
-  return null;
-}
-
-function ProductManagementProducts() {
-  return null;
-}
 
 function ProductManagementSuppliers() {
   return null;
