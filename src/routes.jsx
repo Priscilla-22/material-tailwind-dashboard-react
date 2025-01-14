@@ -2,25 +2,43 @@ import {
   HomeIcon,
   UserCircleIcon,
   TableCellsIcon,
-  InformationCircleIcon,
-  ServerStackIcon,
-  RectangleStackIcon, MapIcon, UsersIcon,
+  BellIcon,
+  ArrowRightOnRectangleIcon,
+  ArrowLeftOnRectangleIcon,
+  ChartBarIcon,
+  MapIcon,
+  UsersIcon,
+  TagIcon,
+  CubeIcon,
+  TruckIcon,
+  ScaleIcon,
+  ArrowPathRoundedSquareIcon,
+  ChartPieIcon,
+  AdjustmentsHorizontalIcon,
+  UserGroupIcon,
 } from "@heroicons/react/24/solid";
+
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
-import { FarmerCrmDashboard,FarmerCrmRoutes, FarmerCrmFarmers } from '@/pages/farmer-crm';
+import { FarmerCrmDashboard, FarmerCrmRoutes, FarmerCrmFarmers } from "@/pages/farmer-crm";
 import {
   ProductManagementCategories,
   ProductManagementDashboard,
   ProductManagementUnits,
   ProductManagementProducts,
 } from "@/pages/product-management/index.js";
-
+import {
+  LogisticsDashboard,
+  LogisticsVehicleTypes,
+  LogisticsVehicles,
+  LogisticsTransportProviders,
+  LogisticsWeighbridgeManagement,
+  LogisticsTripManagement,
+} from "@/pages/logistics";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
 };
-
 
 function ProductManagementSuppliers() {
   return null;
@@ -49,7 +67,7 @@ export const routes = [
         element: <Tables />,
       },
       {
-        icon: <InformationCircleIcon {...icon} />,
+        icon: <BellIcon {...icon} />,
         name: "notifications",
         path: "/notifications",
         element: <Notifications />,
@@ -57,17 +75,17 @@ export const routes = [
     ],
   },
   {
-    title: "auth pages",
+    title: "Auth Pages",
     layout: "auth",
     pages: [
       {
-        icon: <ServerStackIcon {...icon} />,
+        icon: <ArrowRightOnRectangleIcon {...icon} />,
         name: "sign in",
         path: "/sign-in",
         element: <SignIn />,
       },
       {
-        icon: <RectangleStackIcon {...icon} />,
+        icon: <ArrowLeftOnRectangleIcon {...icon} />,
         name: "sign up",
         path: "/sign-up",
         element: <SignUp />,
@@ -79,7 +97,7 @@ export const routes = [
     layout: "farmer-crm",
     pages: [
       {
-        icon: <UserCircleIcon {...icon} />,
+        icon: <ChartBarIcon {...icon} />,
         name: "dashboard",
         path: "/dashboard",
         element: <FarmerCrmDashboard />,
@@ -94,43 +112,85 @@ export const routes = [
         icon: <UsersIcon {...icon} />,
         name: "farmers",
         path: "/farmers",
-        element: <FarmerCrmFarmers  />,
+        element: <FarmerCrmFarmers />,
       },
     ],
   },
-      {
+  {
     title: "Product Management",
     layout: "product-management",
     pages: [
       {
-        icon: <UserCircleIcon {...icon} />,
+        icon: <ChartPieIcon {...icon} />,
         name: "dashboard",
         path: "/dashboard",
         element: <ProductManagementDashboard />,
       },
       {
-        icon: <MapIcon {...icon} />,
+        icon: <AdjustmentsHorizontalIcon {...icon} />,
         name: "units",
         path: "/units",
         element: <ProductManagementUnits />,
       },
       {
-        icon: <UsersIcon {...icon} />,
+        icon: <TagIcon {...icon} />,
         name: "categories",
         path: "/categories",
-        element: <ProductManagementCategories  />,
+        element: <ProductManagementCategories />,
       },
       {
-        icon: <UsersIcon {...icon} />,
+        icon: <CubeIcon {...icon} />,
         name: "products",
         path: "/products",
-        element: <ProductManagementProducts  />,
+        element: <ProductManagementProducts />,
       },
       {
-        icon: <UsersIcon {...icon} />,
+        icon: <TruckIcon {...icon} />,
         name: "suppliers",
         path: "/suppliers",
-        element: <ProductManagementSuppliers  />,
+        element: <ProductManagementSuppliers />,
+      },
+    ],
+  },
+  {
+    title: "Logistics",
+    layout: "logistics",
+    pages: [
+      {
+        icon: <ChartBarIcon {...icon} />,
+        name: "dashboard",
+        path: "/dashboard",
+        element: <LogisticsDashboard />,
+      },
+      {
+        icon: <TruckIcon {...icon} />,
+        name: "vehicle types",
+        path: "/vehicle-types",
+        element: <LogisticsVehicleTypes />,
+      },
+      {
+        icon: <TruckIcon {...icon} />,
+        name: "vehicles",
+        path: "/vehicles",
+        element: <LogisticsVehicles />,
+      },
+      {
+        icon: <UserGroupIcon {...icon} />,
+        name: "transport providers",
+        path: "/transport-providers",
+        element: <LogisticsTransportProviders />,
+      },
+      {
+        icon: <ScaleIcon {...icon} />,
+        name: "weighbridge",
+        path: "/weighbridge-management",
+        element: <LogisticsWeighbridgeManagement />,
+      },
+      {
+        icon: <ArrowPathRoundedSquareIcon {...icon} />,
+        name: "trip management",
+        path: "/trip-management",
+        element: <LogisticsTripManagement />,
       },
     ],
   },

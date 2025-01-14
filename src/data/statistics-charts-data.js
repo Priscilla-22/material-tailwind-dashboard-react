@@ -324,6 +324,41 @@ const comparisonBarChart = {
   },
 };
 
+const transportprovidersBarChart = {
+  type: "bar",
+  height: 680,
+  series: [
+    {
+      name: "Trips",
+      data: [50, 40, 300, 320, 500],
+    },
+  ],
+  options: {
+    ...chartsConfig,
+    colors: ["#1fd527"],
+    xaxis: {
+      ...chartsConfig.xaxis,
+      title: {
+        ...chartsConfig.xaxis.title,
+        text: "Transporters",
+      },
+      categories: [
+        "Little",
+        "Faras",
+        "Sendy",
+        "Transline",
+        "Cargo Carriers",
+      ],
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      title: {
+        ...chartsConfig.yaxis.title,
+        text: "Trips Count",
+      },
+    },
+  },
+};
 
 export const lineChartsData = [
 
@@ -379,6 +414,15 @@ export const barChartsData = [
   },
 ]
 
+export const transportprovidersBarChartsData = [  
+  {
+    color: "white",
+    title: "Trips by Transport Providers",
+    description: "Number of Trips",
+    footer: "updated 2 hours ago",
+    chart: transportprovidersBarChart,
+  },
+]
 
 export const comparisonBarChartsData = [
   {
@@ -389,4 +433,4 @@ export const comparisonBarChartsData = [
     chart: comparisonBarChart,
   },
 ];
-export default { lineChartsData, pieChartsData, barChartsData,comparisonBarChartsData };
+export default { lineChartsData, pieChartsData, barChartsData, comparisonBarChartsData, transportprovidersBarChartsData };

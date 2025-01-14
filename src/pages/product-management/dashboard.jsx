@@ -35,7 +35,7 @@ import {ArrowDownTrayIcon} from "@heroicons/react/24/solid/index.js"; // Import 
 export function  ProductManagementDashboard() {
     return (
         <div className="mt-12">
-            <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
+            {/* <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
                 {statisticsCardsData.map(({icon, title, footer, ...rest}) => (
                     <StatisticsCard
                         key={title}
@@ -52,7 +52,7 @@ export function  ProductManagementDashboard() {
                         }
                     />
                 ))}
-            </div>
+            </div> */}
 
             {/* Comparison Chart Section */}
             <div className="mb-12">
