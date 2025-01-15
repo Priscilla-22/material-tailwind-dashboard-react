@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import {Dashboard, Auth, FarmerCrm, ProductManagement, Logistics} from "@/layouts";
+import {Dashboard, Auth, FarmerCrm, ProductManagement, Logistics, BankManagement} from "@/layouts";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Route path="/farmer-crm/*" element={<FarmerCrm />} />
       <Route path="/product-management/*" element={<ProductManagement />} />
       <Route path="/logistics/*" element={<Logistics />} />
+      <Route path="/bank-management/*" element={<BankManagement />} />
       <Route path="/auth/*" element={<Auth />} />
       <Route path="*" element={<Navigate to="/dashboard/home" replace />} />
     </Routes>

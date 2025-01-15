@@ -17,7 +17,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
   const [openDropdown, setOpenDropdown] = useState(null); // State to track the open dropdown
 
   const handleDropdownToggle = (title) => {
-    setOpenDropdown((prev) => (prev === title ? title : title)); // Keep the dropdown open when clicked
+    setOpenDropdown((prev) => (prev === title ? null : title)); // Toggle the current dropdown and close others
   };
 
   return (

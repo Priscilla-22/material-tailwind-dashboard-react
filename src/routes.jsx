@@ -35,6 +35,10 @@ import {
   LogisticsWeighbridgeManagement,
   LogisticsTripManagement,
 } from "@/pages/logistics";
+import {
+  BankManagementBank,
+  BankManagementBranches,
+} from "@/pages/bank-management/index.js";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -191,6 +195,24 @@ export const routes = [
         name: "trip management",
         path: "/trip-management",
         element: <LogisticsTripManagement />,
+      },
+    ],
+  },
+  {
+    title: "Bank Management",
+    layout: "bank-management",
+    pages: [
+      {
+        icon: <ChartBarIcon {...icon} />,
+        name: "banks",
+        path: "/banks",
+        element: <BankManagementBank />,
+      },
+      {
+        icon: <TruckIcon {...icon} />,
+        name: "branches",
+        path: "/branches",
+        element: <BankManagementBranches />,
       },
     ],
   },
