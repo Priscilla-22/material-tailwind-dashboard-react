@@ -1,23 +1,23 @@
 import PropTypes from "prop-types";
 import { Link, NavLink } from "react-router-dom";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Avatar, Button, IconButton, Typography } from "@material-tailwind/react";
+import { Button, IconButton, Typography } from "@material-tailwind/react";
 import { useMaterialTailwindController, setOpenSidenav } from "@/context";
 import { useState } from "react";
 
 export function Sidenav({ brandImg, brandName, routes }) {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavColor, sidenavType, openSidenav } = controller;
-  const [openDropdown, setOpenDropdown] = useState(null); // Track the currently open dropdown
-
   const sidenavTypes = {
     dark: "bg-gradient-to-br from-gray-800 to-gray-900",
     white: "bg-white shadow-sm",
     transparent: "bg-transparent",
   };
 
+  const [openDropdown, setOpenDropdown] = useState(null); // State to track the open dropdown
+
   const handleDropdownToggle = (title) => {
-    setOpenDropdown((prev) => (prev === title ? null : title)); // Toggle dropdown state
+    setOpenDropdown((prev) => (prev === title ? title : title)); // Keep the dropdown open when clicked
   };
 
   return (
@@ -64,7 +64,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
                 </Typography>
               </li>
             )}
-            {openDropdown === title &&
+            {(!title || openDropdown === title) &&
               pages.map(({ icon, name, path }) => (
                 <li key={name}>
                   <NavLink to={`/${layout}${path}`}>

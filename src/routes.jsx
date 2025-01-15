@@ -116,42 +116,42 @@ export const routes = [
       },
     ],
   },
-  {
-    title: "Product Management",
-    layout: "product-management",
-    pages: [
-      {
-        icon: <ChartPieIcon {...icon} />,
-        name: "dashboard",
-        path: "/dashboard",
-        element: <ProductManagementDashboard />,
-      },
-      {
-        icon: <AdjustmentsHorizontalIcon {...icon} />,
-        name: "units",
-        path: "/units",
-        element: <ProductManagementUnits />,
-      },
-      {
-        icon: <TagIcon {...icon} />,
-        name: "categories",
-        path: "/categories",
-        element: <ProductManagementCategories />,
-      },
-      {
-        icon: <CubeIcon {...icon} />,
-        name: "products",
-        path: "/products",
-        element: <ProductManagementProducts />,
-      },
-      {
-        icon: <TruckIcon {...icon} />,
-        name: "suppliers",
-        path: "/suppliers",
-        element: <ProductManagementSuppliers />,
-      },
-    ],
-  },
+  // {
+  //   title: "Product Management",
+  //   layout: "product-management",
+  //   pages: [
+  //     {
+  //       icon: <ChartPieIcon {...icon} />,
+  //       name: "dashboard",
+  //       path: "/dashboard",
+  //       element: <ProductManagementDashboard />,
+  //     },
+  //     {
+  //       icon: <AdjustmentsHorizontalIcon {...icon} />,
+  //       name: "units",
+  //       path: "/units",
+  //       element: <ProductManagementUnits />,
+  //     },
+  //     {
+  //       icon: <TagIcon {...icon} />,
+  //       name: "categories",
+  //       path: "/categories",
+  //       element: <ProductManagementCategories />,
+  //     },
+  //     {
+  //       icon: <CubeIcon {...icon} />,
+  //       name: "products",
+  //       path: "/products",
+  //       element: <ProductManagementProducts />,
+  //     },
+  //     {
+  //       icon: <TruckIcon {...icon} />,
+  //       name: "suppliers",
+  //       path: "/suppliers",
+  //       element: <ProductManagementSuppliers />,
+  //     },
+  //   ],
+  // },
   {
     title: "Logistics",
     layout: "logistics",
